@@ -1,7 +1,23 @@
 import { syllable } from "syllable";
+import { numberToWords } from "./numberToWords";
 
 function sylls(term: string) {
-  switch (term.replace(/[^a-z]/g, "")) {
+  const t = term
+    .toLowerCase()
+    .replace(/[0-9]+/g, (v) => numberToWords(v))
+    .replace(/[^a-z% ]/g, "")
+    .trim();
+
+  // If we turned a any numbers into words lets cycle through them
+  if (t.includes(" "))
+    return t
+      .split(" ")
+      .map((s) => sylls(s))
+      .reduce((acc, s) => acc + s, 0);
+
+  switch (t) {
+    case "%":
+      return 2;
     case "forest":
       return 2;
     default:
