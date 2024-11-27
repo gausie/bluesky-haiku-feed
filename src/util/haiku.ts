@@ -14,7 +14,7 @@ export function isHaiku(post: string) {
   const postSyllables = terms.map((term) => sylls(term)).filter((s) => s > 0);
 
   // Whole thing must be 17 syllables long, so we can exit early if it's not.
-  if (postSyllables.reduce((acc, s) => acc + s) !== 17) return false;
+  if (postSyllables.reduce((acc, s) => acc + s, 0) !== 17) return false;
 
   // Must be able to get correct syllable count for each line from full words.
   for (let line = 0; line < 3; line++) {
