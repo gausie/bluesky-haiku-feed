@@ -1,6 +1,4 @@
-# use the official Bun image
-# see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun
+FROM node:20
 COPY . .
-RUN bun install --frozen-lockfile
-ENTRYPOINT [ "bun", "start" ]
+RUN yarn install --frozen-lockfile
+ENTRYPOINT [ "yarn", "start" ]

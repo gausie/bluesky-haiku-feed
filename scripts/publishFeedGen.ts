@@ -1,9 +1,12 @@
+import dotenv from "dotenv";
 import inquirer from "inquirer";
 import { AtpAgent, BlobRef } from "@atproto/api";
 import fs from "fs/promises";
 import { ids } from "../src/lexicon/lexicons";
 
 const run = async () => {
+  dotenv.config();
+
   if (!process.env.FEEDGEN_SERVICE_DID && !process.env.FEEDGEN_HOSTNAME) {
     throw new Error("Please provide a hostname in the .env file");
   }

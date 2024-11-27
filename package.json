@@ -7,12 +7,12 @@
   "author": "dholms <dtholmgren@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "publishFeed": "bun run scripts/publishFeedGen.ts",
-    "unpublishFeed": "bun run scripts/unpublishFeedGen.ts",
-    "start": "bun run src/index.ts",
+    "publishFeed": "node --import tsx scripts/publishFeedGen.ts",
+    "unpublishFeed": "node --import tsx scripts/unpublishFeedGen.ts",
+    "start": "node --import tsx src/index.ts",
     "build": "tsc",
     "test": "vitest",
-    "format": "bun run prettier --write ."
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@atproto/api": "^0.6.24",
@@ -21,6 +21,7 @@
     "@atproto/repo": "^0.3.9",
     "@atproto/syntax": "^0.1.5",
     "@atproto/xrpc-server": "^0.6.4",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "kysely": "^0.27.4",
     "multiformats": "^9.9.0",
@@ -28,12 +29,12 @@
     "syllable": "^5.0.1"
   },
   "devDependencies": {
-    "@types/bun": "latest",
     "@types/express": "^4.17.21",
     "@types/node": "^22.10.0",
     "@types/pg": "^8",
     "inquirer": "^12.1.0",
     "prettier": "^3.4.1",
+    "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.6"
   },
