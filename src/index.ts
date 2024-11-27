@@ -8,7 +8,6 @@ const run = async () => {
     maybeStr(process.env.FEEDGEN_SERVICE_DID) ?? `did:web:${hostname}`;
   const server = FeedGenerator.create({
     port: maybeInt(process.env.FEEDGEN_PORT) ?? 3000,
-    listenhost: maybeStr(process.env.FEEDGEN_LISTENHOST) ?? "localhost",
     postgresConnectionString:
       maybeStr(process.env.FEEDGEN_POSTGRES_CONNECTION_STRING) ??
       "postgresql://localhost:5432/bluesky_haiku",
@@ -24,7 +23,7 @@ const run = async () => {
   });
   await server.start();
   console.log(
-    `🤖 running feed generator at http://${server.cfg.listenhost}:${server.cfg.port}`,
+    `🤖 running feed generator at http://localhost:${server.cfg.port}`,
   );
 };
 
