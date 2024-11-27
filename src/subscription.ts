@@ -2,6 +2,7 @@ import {
   OutputSchema as RepoEvent,
   isCommit,
 } from "./lexicon/types/com/atproto/sync/subscribeRepos";
+import { isHaiku } from "./util/haiku";
 import { FirehoseSubscriptionBase, getOpsByType } from "./util/subscription";
 
 export class FirehoseSubscription extends FirehoseSubscriptionBase {
@@ -10,18 +11,11 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
 
     const ops = await getOpsByType(evt);
 
-    // This logs the text of every post off the firehose.
-    // Just for fun :)
-    // Delete before actually using
-    for (const post of ops.posts.creates) {
-      console.log(post.record.text);
-    }
-
     const postsToDelete = ops.posts.deletes.map((del) => del.uri);
     const postsToCreate = ops.posts.creates
       .filter((create) => {
         // only alf-related posts
-        return create.record.text.toLowerCase().includes("alf");
+        return isHaiku(create.record.text);
       })
       .map((create) => {
         // map alf-related posts to a db row

@@ -7,32 +7,35 @@
   "author": "dholms <dtholmgren@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "publishFeed": "ts-node scripts/publishFeedGen.ts",
-    "unpublishFeed": "ts-node scripts/unpublishFeedGen.ts",
-    "start": "ts-node src/index.ts",
-    "build": "tsc"
+    "publishFeed": "node --import tsx scripts/publishFeedGen.ts",
+    "unpublishFeed": "node --import tsx scripts/unpublishFeedGen.ts",
+    "start": "node --import tsx src/index.ts",
+    "build": "tsc",
+    "test": "vitest"
   },
   "dependencies": {
-    "@atproto/api": "^0.6.20",
+    "@atproto/api": "^0.6.24",
     "@atproto/identity": "^0.2.1",
-    "@atproto/lexicon": "^0.2.2",
-    "@atproto/repo": "^0.3.2",
-    "@atproto/syntax": "^0.1.2",
-    "@atproto/xrpc-server": "^0.6.0",
-    "better-sqlite3": "^11.3.0",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "@atproto/lexicon": "^0.2.3",
+    "@atproto/repo": "^0.3.9",
+    "@atproto/syntax": "^0.1.5",
+    "@atproto/xrpc-server": "^0.6.4",
+    "better-sqlite3": "^11.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
     "kysely": "^0.27.4",
-    "multiformats": "^9.9.0"
+    "multiformats": "^9.9.0",
+    "syllable": "^5.0.1"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.11",
-    "@types/express": "^4.17.17",
-    "@types/node": "^20.1.2",
-    "inquirer": "^12.0.1",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.0",
+    "inquirer": "^12.1.0",
     "prettier": "^3.4.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.6"
   },
   "engines": {
     "node": ">= 18",
