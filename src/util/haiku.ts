@@ -20,8 +20,12 @@ function sylls(term: string) {
       return 2;
     case "forest":
       return 2;
+    case "emerged":
+      return 2;
+    case "doing":
+      return 2;
     default:
-      return syllable(term);
+      return syllable(t);
   }
 }
 

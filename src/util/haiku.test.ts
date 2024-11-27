@@ -14,6 +14,7 @@ test.each([
   "I'm a stupid moron with an ugly face and a big butt and my butt smells and I like to kiss my own butt.",
   "",
   "also, shout out to that AMAZING goomba who is 300% here to Square Up.",
+  "Then what are you doing here? Go back to the slime from which you emerged."
 ])('correctly identifies "%s" as not a haiku', (text) => {
   expect(isHaiku(text)).toBe(false);
 });
