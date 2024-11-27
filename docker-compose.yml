@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  app:
+    image: ghcr.io/gausie/bluesky-haiku-feed:main
+    ports:
+      - "5750:3000"
+    environment:
+      FEEDGEN_POSTGRES_CONNECTION_STRING: postgres://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@db:5432/db
+      FEEDGEN_PUBLISHER_DID: ${PUBLISHER_DID}
+      FEEDGEN_HOSTNAME: ${FEED_HOSTNAME}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
