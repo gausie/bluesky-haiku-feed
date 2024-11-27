@@ -1,9 +1,9 @@
 {
-  "name": "feed-generator",
+  "name": "bluesky-haiku-feed",
   "version": "1.0.0",
-  "description": "atproto feed generator starter kit",
+  "description": "bluesky feed for haikus",
   "main": "index.js",
-  "repository": "git@github.com:bluesky-social/feed-generator.git",
+  "repository": "git@github.com:gausie/bluesky-haiku-feed.git",
   "author": "dholms <dtholmgren@gmail.com>",
   "license": "MIT",
   "scripts": {
